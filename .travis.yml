@@ -2,10 +2,10 @@
 env:
    global:
      - CONAN_REFERENCE: "gtest/1.8.0"
-     - CONAN_USERNAME: "conan"
-     - CONAN_LOGIN_USERNAME: "lasote"
+     - CONAN_USERNAME: "sunxfancy"
+     - CONAN_LOGIN_USERNAME: "sunxfancy"
      - CONAN_CHANNEL: "testing"
-     - CONAN_UPLOAD: "https://api.bintray.com/conan/conan-community/conan"
+     - CONAN_UPLOAD: "https://api.bintray.com/conan/sunxfancy/common"
      - CONAN_STABLE_BRANCH_PATTERN: "release/*"
      - CONAN_UPLOAD_ONLY_WHEN_STABLE: 1 # Will only upload when the branch matches "release/*"
 
