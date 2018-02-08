@@ -43,6 +43,13 @@ class GTestConan(ConanFile):
                 cmake.definitions["BUILD_SHARED_LIBS"] = "1"
             if self.options.fpic:
                 cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = "ON"
+            if self.settings.compiler == "Visual Studio":
+                tools.replace_in_file("../%s/googletest/cmake/internal_utils.cmake" % self.ZIP_FOLDER_NAME,
+                    # The -WX flag will treat all warnings as error, which breaks builds with Visual Studio 15.5 (2017).
+                    # Removing it in msvc build is generally a good idea
+                    "-WX",
+                    ""
+                )
 
             cmake.definitions["BUILD_GTEST"] = "ON" if self.options.no_gmock else "OFF"
             cmake.definitions["BUILD_GMOCK"] = "OFF" if self.options.no_gmock else "ON"
